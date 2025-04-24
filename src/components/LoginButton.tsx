@@ -6,8 +6,8 @@ export type ButtonProps = {
   children: React.ReactNode;
 };
 
-export const loginButton = ({ onClick, children, disabled }: ButtonProps) => (
-  <button  
+export const LoginButton = ({ onClick, children, disabled }: ButtonProps) => (
+  <button className="text-fuchsia-50 bg-pink-500 border-fuchsia-50"
     onClick={onClick} 
     disabled={disabled}>
     {children}
