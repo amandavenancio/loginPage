@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { LoginButton } from "./LoginButton";
 import { PasswordInput } from "./PasswordInput";
 import { UserInput } from "./UserInput";
@@ -61,29 +61,40 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <UserInput
-        value={usuario}
-        onChange={handleUsuario}
-        placeholder="Digite seu usuário"
-      />
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-pink-100 to-purple-200 p-4">
+      <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full">
+        <h1 className="text-2xl font-bold text-center mb-6 text-pink-600">Login</h1>
 
-      <PasswordInput
-        value={senha}
-        onChange={handleSenha}
-        placeholder="Digite sua senha"
-      />
+        <div className="mb-4">
+          <UserInput
+            value={usuario}
+            onChange={handleUsuario}
+            placeholder="Digite seu usuário"
+          />
+        </div>
 
-      <div style={{ marginTop: "10px" }}>
-        <CreateUserButton onClick={handleCreateUser}>
-          Criar Usuário
-        </CreateUserButton>
+        <div className="mb-4">
+          <PasswordInput
+            value={senha}
+            onChange={handleSenha}
+            placeholder="Digite sua senha"
+          />
+        </div>
 
-        <LoginButton onClick={handleLogin}>
-          Entrar
-        </LoginButton>
+        <div className="flex justify-between gap-2 mt-4">
+          <CreateUserButton onClick={handleCreateUser}>
+            Criar Usuário
+          </CreateUserButton>
+
+          <LoginButton onClick={handleLogin}>
+            Entrar
+          </LoginButton>
+        </div>
+
+        {mensagem && (
+          <p className="mt-4 text-sm text-center text-rose-600">{mensagem}</p>
+        )}
       </div>
-      {mensagem && <p style={{ marginTop: "10px", color: "#D6336C" }}>{mensagem}</p>}
     </div>
-  )
-}
+  );
+};
