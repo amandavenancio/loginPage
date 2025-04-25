@@ -13,5 +13,6 @@ export const UserInput = ({value, onChange, placeholder} : UserInputProps) => (
     value={value}
     onChange={onChange}
     placeholder={placeholder}
+    aria-label="Campo para digitar seu usuário"
   ></input>
 )

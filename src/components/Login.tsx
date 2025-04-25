@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { LoginButton } from "./LoginButton";
-import { PasswordInput } from "./PasswordInput";
-import { UserInput } from "./UserInput";
-import { CreateUserButton } from "./CreateUserButton";
+import { LoginButton } from "./Buttons/LoginButton";
+import { PasswordInput } from "./Inputs/PasswordInput";
+import { UserInput } from "./Inputs/UserInput";
+import { CreateUserButton } from "./Buttons/CreateUserButton";
+import { senhaValida } from "../utils/PasswordValidator";
+import { FeedbackMessage } from "./FeedbackMessage";
 
 type UsuarioCadastrado = {
   nome: string;
@@ -14,7 +16,7 @@ export const Login = () => {
     { nome: "admin", senha: "1234" },
     { nome: "nanda", senha: "abcd" }
   ]);
-  
+
   const [tentativasPorUsuario, setTentativasPorUsuario] = useState<{ [key: string]: number }>({});
   const [bloqueados, setBloqueados] = useState<Set<string>>(new Set());
 
@@ -24,11 +26,6 @@ export const Login = () => {
 
   const handleUsuario = (e: React.ChangeEvent<HTMLInputElement>) => setUsuario(e.target.value);
   const handleSenha = (e: React.ChangeEvent<HTMLInputElement>) => setSenha(e.target.value);
-
-  const senhaValida = (senha: string): boolean => {
-    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,10}$/;
-    return regex.test(senha);
-  };
 
   const handleCreateUser = () => {
     const usuarioExistente = usuarios.find((u) => u.nome === usuario);
@@ -65,56 +62,57 @@ export const Login = () => {
     if (usuarioEncontrado) {
       setMensagem(`🎉 Bem-vindo(a), ${usuarioEncontrado.nome}!`);
       setTentativasPorUsuario((prev) => ({ ...prev, [usuario]: 3 }));
+      setUsuario("");
+      setSenha("");
     } else {
       const tentativasRestantes = tentativasPorUsuario[usuario] ?? 3;
       const novasTentativas = tentativasRestantes - 1;
-  
+
       if (novasTentativas <= 0) {
         setBloqueados((prev) => new Set(prev).add(usuario));
         setMensagem("❌ Você errou 3 vezes. Usuário bloqueado.");
       } else {
         setMensagem(`❌ Senha incorreta. Você tem mais ${novasTentativas} tentativa${novasTentativas === 1 ? '' : 's'}.`);
       }
-  
+
       setTentativasPorUsuario((prev) => ({ ...prev, [usuario]: novasTentativas }));
     }
   };
 
-return (
-  <div className="w-full max-w-md p-6 bg-white rounded-xl shadow-md flex flex-col gap-4 items-center">
-    <h1 className="text-2xl font-bold text-center mb-6 text-pink-600">Login</h1>
+  return (
+    <div className="w-full max-w-md p-6 bg-white rounded-xl shadow-md flex flex-col gap-4 items-center">
+      <h1 className="text-2xl font-bold text-center mb-6 text-pink-600">Login</h1>
 
-    <div className="mb-4">
-      <UserInput
-        value={usuario}
-        onChange={handleUsuario}
-        placeholder="Digite seu usuário"
-      />
+      <div className="mb-4">
+        <UserInput
+          value={usuario}
+          onChange={handleUsuario}
+          placeholder="Digite seu usuário"
+        />
+      </div>
+
+      <div className="mb-4">
+        <PasswordInput
+          value={senha}
+          onChange={handleSenha}
+          placeholder="Digite sua senha"
+        />
+      </div>
+
+      <div className="flex justify-between gap-2 mt-4">
+        <CreateUserButton
+          onClick={handleCreateUser}
+        >Criar Usuário
+        </CreateUserButton>
+
+        <LoginButton
+          onClick={handleLogin}
+        >Entrar
+        </LoginButton>
+      </div>
+
+      {mensagem && <FeedbackMessage mensagem={mensagem} />}
+
     </div>
-
-    <div className="mb-4">
-      <PasswordInput
-        value={senha}
-        onChange={handleSenha}
-        placeholder="Digite sua senha"
-      />
-    </div>
-
-    <div className="flex justify-between gap-2 mt-4">
-      <CreateUserButton
-        onClick={handleCreateUser}
-      >Criar Usuário
-      </CreateUserButton>
-
-      <LoginButton
-        onClick={handleLogin}
-      >Entrar
-      </LoginButton>
-    </div>
-
-    {mensagem && (
-      <p className="mt-4 text-sm text-center text-rose-600">{mensagem}</p>
-    )}
-  </div>
-);
+  );
 };

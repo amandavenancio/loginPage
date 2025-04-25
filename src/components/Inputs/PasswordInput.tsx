@@ -22,11 +22,13 @@ export const PasswordInput = ({ value, onChange, placeholder }: PasswordInputPro
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        aria-label="Campo para digitar sua senha"
       />
       <button
         type="button"
         onClick={togglePasswordVisibility}
         className="absolute right-3 top-2.5"
+        aria-label={isPasswordVisible ? "Ocultar senha" : "Mostrar senha"}
       >
         {isPasswordVisible ? <FiEyeOff size={20} /> : <FiEye size={20} />} {/* Ícone de olho */}
       </button>
