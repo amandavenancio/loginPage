@@ -61,8 +61,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-pink-100 to-purple-200 p-4">
-      <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full">
+    <div className="w-full max-w-md p-6 bg-white rounded-xl shadow-md flex flex-col gap-4 items-center">
         <h1 className="text-2xl font-bold text-center mb-6 text-pink-600">Login</h1>
 
         <div className="mb-4">
@@ -82,12 +81,14 @@ export const Login = () => {
         </div>
 
         <div className="flex justify-between gap-2 mt-4">
-          <CreateUserButton onClick={handleCreateUser}>
-            Criar Usuário
+          <CreateUserButton
+            onClick={handleCreateUser}
+          >Criar Usuário
           </CreateUserButton>
 
-          <LoginButton onClick={handleLogin}>
-            Entrar
+          <LoginButton
+            onClick={handleLogin}
+          >Entrar
           </LoginButton>
         </div>
 
@@ -95,6 +96,5 @@ export const Login = () => {
           <p className="mt-4 text-sm text-center text-rose-600">{mensagem}</p>
         )}
       </div>
-    </div>
   );
 };
