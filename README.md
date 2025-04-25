@@ -36,7 +36,7 @@ Este projeto é uma aplicação de **login** desenvolvida em **React + TypeScrip
 
 ## 🔗 Projeto online
 
-[Acesse o projeto online](login-page-amandavenancio.vercel.app)
+[Acesse o projeto online](https://login-page-amandavenancio.vercel.app/)
 
 ---
 
