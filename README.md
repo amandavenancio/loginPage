@@ -81,6 +81,7 @@ Feito com ❤️ por [Amanda Venancio](https://www.linkedin.com/in/amanda-a-vena
 
 ## 📸 Captura de Tela
 
+![image](https://github.com/user-attachments/assets/5d6cf45c-416c-4534-9ccd-894620cb57c1)
 
 ---
 
