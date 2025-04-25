@@ -38,12 +38,12 @@ Este projeto é uma aplicação de **login** desenvolvida em **React + TypeScrip
 
 ### 1️⃣ **Clone o repositório**  
 ```bash
-git clone https://github.com/amandavenancio/tempoAgora
+git clone https://github.com/amandavenancio/loginPage
 ```
 
 ### 2️⃣ **Acesse a pasta do projeto**
 ```sh
-cd tempoAgora
+cd loginPage
 ```
 
 ### 3️⃣ **Instale as dependências**
