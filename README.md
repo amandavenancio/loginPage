@@ -34,6 +34,12 @@ Este projeto é uma aplicação de **login** desenvolvida em **React + TypeScrip
 
 ---
 
+🔗 Projeto online
+
+[Acesse o projeto online](login-page-amandavenancio.vercel.app)
+
+---
+
 ## 🖥️ Como executar
 
 ### 1️⃣ **Clone o repositório**  
