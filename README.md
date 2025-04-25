@@ -1,54 +1,83 @@
-# React + TypeScript + Vite
+# 🛡️ Tela de Login com Cadastro, Validação de Senha e Bloqueio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)](#)
 
-Currently, two official plugins are available:
+Este projeto é uma aplicação de **login** desenvolvida em **React + TypeScript**, com foco em **validação de senha**, **acessibilidade** e **bloqueio de usuários após 3 tentativas incorretas**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ✅ Cadastro de novo usuário com validação de senha segura
+- 🔐 Campo de senha com botão de visibilidade (ícone de olho)
+- 🧠 Validação de senha:
+  - 8 a 10 caracteres
+  - pelo menos 1 letra maiúscula
+  - pelo menos 1 número
+  - pelo menos 1 caractere especial
+- 📛 Mensagens de erro e sucesso dinâmicas
+- ⛔ Bloqueio automático após 3 tentativas incorretas
+- ⚙️ Código componentizado para reutilização
+- ♿ Acessibilidade com uso de `aria-label` nos campos e botões
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## 🧪 Tecnologias
+
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+
+---
+
+## 🖥️ Como executar
+
+### 1️⃣ **Clone o repositório**  
+```bash
+git clone https://github.com/amandavenancio/tempoAgora
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 2️⃣ **Acesse a pasta do projeto**
+```sh
+cd tempoAgora
 ```
+
+### 3️⃣ **Instale as dependências**
+```sh
+npm install
+```
+
+### 4️⃣ **Inicie a aplicação**
+```sh
+npm run dev
+```
+## 📱Layout
+Interface responsiva, moderna e amigável, construída com TailwindCSS. O foco é na usabilidade, com feedback visual claro para o usuário em cada ação.
+
+## 💡 Melhorias futuras
+
+- [ ] Integração com backend (API)
+- [ ] Página de redefinição de senha
+- [ ] Testes automatizados (unitários e integração)
+- [ ] Animações de carregamento e sucesso
+
+---
+
+## 🙋‍♀️ Desenvolvedora
+
+Feito com ❤️ por [Amanda Venancio](https://www.linkedin.com/in/amanda-a-venancio/)
+
+---
+
+## 📸 Captura de Tela
+
+
+---
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Sinta-se à vontade para usar e adaptar.
